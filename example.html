@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>jQuery Link Cues Plugin Demonstration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script language="JavaScript" type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="jquery.linkcues.js"></script>
+
+    <script language="JavaScript" type="text/javascript">
+    <!--
+    $(document).ready(function() {
+      $('#demo').linkcues();
+    });
+    // -->
+    </script>
+
+    <style type="text/css">
+      html, body { font: 12px Arial, sans-serif; line-height: 30px; }
+      .ui-linkcues-new-window { border: 1px solid #c00; padding: 0 3px; }
+      .ui-linkcues-external { color: #c00}
+      .ui-linkcues-secure { color: #f90; }
+      .ui-linkcues-ftp { background-color: #ff0; color: #333; }
+      .ui-linkcues-mailto { color: #0a0; }
+      .ui-linkcues-pdf { color: #0cf; }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <a href="example.html">demo page</a> - local link, same window<br />
+      <a href="http://www.google.com" target="_blank" title="Google">Google</a> - external link, new window<br />
+      <a href="mailto:johndoe@example.com?subject=Example">johndoe@example.com</a> - email link with subject, no title<br />
+      <a href="some-document.pdf">pdf document</a> - file link, window not specified<br />
+      <a href="ftp://example.com" target="_blank">ftp link</a> - ftp link, new window<br />
+      <a href="https://example.com">secure link</a> - secure link, window not specified<br />
+    </div>
+    <a href="https://example.com">secure link</a> - link outside container
+  </body>
+</html>
