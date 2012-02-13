@@ -1,6 +1,4 @@
-# jQuery Link Cues Plugin #
-
-This is a jQuery plugin that adds CSS classes to links found within the element specified by the selector based on a predetermined set of characteristics.
+*jquery.linkcues.js* is a jQuery plugin that adds CSS classes to links found within the element specified by the selector based on a predetermined set of characteristics.
 
 * link directs the user to a different domain
 * link directs the user user to a secure (https) page
@@ -10,12 +8,12 @@ This is a jQuery plugin that adds CSS classes to links found within the element 
 * link opens in a new window
 
 
-## Live Demonstration ##
+## Live Demonstration
 
-Click [here](http://craigmccoy.github.com/jquery-linkcues/) to view a live demo.
+Click [here](http://craigmccoy.github.com/jquery-linkcues/ "craigmccoy/jquery-linkcues") to view a live demo.
 
 
-## Quick Documentation ##
+## Quick Documentation
 
 <code>$(*selector*).linkcues(*options*);</code>
 
@@ -25,8 +23,10 @@ Click [here](http://craigmccoy.github.com/jquery-linkcues/) to view a live demo.
 * **classPrefix:** (type: <a href="http://docs.jquery.com/Types#String" target="_blank">String</a>, default: "linkcues-") This string is prefixed to all classes used by the plugin.
 
 
-## Usage Example ##
-	$('p').linkcues({
-		filetypes: 'pdf,mp3,doc'
-	});
-	
+## Usage Example
+
+```javascript
+$('p').linkcues({
+	filetypes: 'pdf,mp3,doc'
+});
+```
