@@ -2,7 +2,7 @@
     $.fn.linkcues = function(options) {
 		var settings = $.extend({
 		    filetypes: 'pdf',
-		    classPrefix: 'linkcues'
+		    classPrefix: 'linkcues-'
 		}, options);
 	
 		var container = $(this);
