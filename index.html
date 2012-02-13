@@ -6,7 +6,18 @@
 		<script src="https://raw.github.com/craigmccoy/jquery-linkcues/master/jquery.linkcues.js"></script>
 		<script>
 			$(document).ready(function() {
-
+				$('.demo').linkcues();
+				
+				//for demo
+				$('.clear-debug').click(function(evt) {
+					evt.preventDefault();
+					$('#logger').val('');
+				});
+				
+				$('.demo a').mouseenter(function(evt) {
+					var logger = $('#logger');
+					logger.val(logger.val() + $(this).attr('class') + '\n');
+				});
 			});
 		</script>
 		<style>
@@ -16,7 +27,7 @@
 			header { position: relative; border-bottom: 1px dashed #333; padding: 0 0 5px; }
 			header nav { position: absolute; top: 0; right: 0; }
 			
-			footer { border-top: 1px dashed #333; padding: 10px 0 0; }
+			footer { border-top: 1px dashed #333; padding: 10px 0 0; margin: 15px 0 0; }
 			
 			h1, h2 { margin: 0; padding: 0; }
 			h1 { font-size: 20px; }
@@ -30,8 +41,16 @@
 			
 			#page-wrapper { margin: 10px auto; width: 960px; }
 			
-			.demo { margin: 15px 0; }
-			.demo header { border: 0; }
+			.demo, .debug { margin: 15px 0; }
+			.demo header, .debug header { border: 0; }
+			.debug textarea { height: 200px; }
+			
+			.linkcues-new-window { border: 1px solid #c00; padding: 0 3px; }
+			.linkcues-external { color: #c00}
+		    .linkcues-secure { color: #f90; }
+		    .linkcues-ftp { background-color: #ff0; color: #333; }
+		    .linkcues-mailto { color: #0a0; }
+		    .linkcues-pdf { color: #0cf; }
 		</style>
 	</head>
 	<body>
@@ -43,7 +62,29 @@
 				</nav>
 			</header>
 			<section>	
+				<div class="demo">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is <a href="index.html">a demo link</a> to a local page that opens in the same window. Vestibulum pellentesque elit quis metus porta non condimentum tortor dapibus. Sed quis rutrum turpis. Quisque interdum fermentum urna ut euismod. Proin feugiat dui a ipsum pharetra iaculis sit amet nec lorem. Donec tempor mauris velit, eget rhoncus elit. Aliquam fermentum commodo ligula sit amet scelerisque. Donec convallis sollicitudin dolor non mattis. Fusce vel dui lorem. Nullam vitae facilisis tortor. Proin adipiscing dictum sem suscipit volutpat. Praesent viverra, eros eu eleifend hendrerit, diam mauris faucibus quam, quis volutpat dolor est at nunc. Pellentesque varius fermentum nibh sed feugiat. Integer condimentum feugiat ante, sit amet euismod massa tempor non.</p>
 
+					<p>Sed non sem non tellus commodo iaculis vitae non lorem. In enim ligula, gravida vel suscipit sed, elementum lacinia augue. In vehicula, dolor eu euismod dictum, ipsum massa rhoncus diam, eu pretium sapien leo eu purus. Nulla facilisi. This is <a href="http://www.google.com" target="_blank" title="Google">a demo link</a> an external site that open in a new window. Praesent quam tortor, venenatis sed egestas vel, rhoncus a lectus. Cras est mauris, venenatis ultrices suscipit vitae, sagittis in orci. Quisque mattis augue sit amet justo semper ac faucibus diam malesuada. Donec sagittis aliquet augue posuere pulvinar. Aliquam interdum turpis id nunc convallis in elementum ligula gravida.</p>
+
+					<p>Integer vulputate placerat massa sed ultrices. This is <a href="mailto:johndoe@example.com?subject=Example">a demo mailto link</a> with a subject and no title. Suspendisse ac leo quam, ac bibendum turpis. Vestibulum nec elementum enim. Donec velit sapien, congue sed scelerisque a, gravida sed ipsum. Integer hendrerit, ipsum eu molestie imperdiet, dolor nisi luctus odio, et viverra lorem nulla sed dui. Aliquam iaculis nisl vitae enim lacinia eu ullamcorper risus sagittis. Etiam ac eros eget nulla tristique mattis. Curabitur a nulla non arcu suscipit eleifend. Cras quis dignissim nisi. Ut lacus mi, porta eu euismod vel, consequat ut arcu. Quisque pretium ante at velit ullamcorper lobortis.</p>
+
+					<p>Sed sit amet felis ac sapien lobortis accumsan. This is <a href="demo.pdf">a demo link</a> to a local file.  Nulla facilisi. Vestibulum nunc leo, ultricies eget aliquet vitae, tincidunt vel sem. Suspendisse mollis interdum velit vitae pharetra. This is <a href="ftp://example.com" target="_blank">a demo link</a> to an FTP site that opens in a new window. Donec nibh nisl, hendrerit vitae luctus quis, bibendum varius metus. Nam adipiscing, massa blandit sagittis feugiat, massa enim porta nisl, in scelerisque justo augue a odio. Curabitur vehicula odio semper est sagittis rhoncus. Mauris quam nulla, pellentesque et egestas tincidunt, ornare eget odio. Duis imperdiet diam ac erat fermentum sit amet hendrerit nisl sodales. Sed lobortis ullamcorper ante quis iaculis. Aliquam interdum, leo nec elementum bibendum, nulla quam placerat purus, non molestie ante mauris ac odio. Integer quis lacus in leo eleifend posuere a ac justo. Aliquam eget velit nec quam vestibulum ornare.</p>
+
+					<p>Donec sollicitudin rhoncus nisi. Sed vel est magna. Suspendisse potenti. Donec id nisi tempus risus dapibus volutpat. This is <a href="https://github.com">a demo link</a> to a secure website. In adipiscing magna eget elit tincidunt sodales. Integer lacinia, mauris non luctus porttitor, diam orci faucibus nibh, non fermentum neque mauris sed tortor. Duis pellentesque dignissim pellentesque. Morbi consequat, tortor eget elementum ultrices, neque leo tincidunt odio, non dictum lectus erat sit amet metus. Morbi nunc erat, aliquam in ornare et, pharetra ac elit.</p>
+			    </div>
+
+			    <div class="debug">
+					<header>
+						<h2>debug console</h2>
+						<nav>
+							<a class="clear-debug" href="#" title="clear">clear</a>
+						</nav>
+					</header>
+					<section>
+						<textarea id="logger" readonly="readonly"></textarea>
+					</section>
+				</div>
 			</section>
 			<footer>
 				<nav>
