@@ -9,19 +9,21 @@
 	
 		$('a[href^="http://"],a[href^="https://"],a[href^="ftp://"]', container).each(function() {
 		    var site = window.location.protocol + '//' + window.location.hostname;
-		    if($(this).attr('href').substr(0, site.length) != site) {
-		    	$(this).addClass(settings.classPrefix + 'external').attr('target', '_blank');
+		    var link = $(this);
+		    if(link.attr('href').substr(0, site.length) != site) {
+		    	link.addClass(settings.classPrefix + 'external').attr('target', '_blank');
 		    }
-		    if($(this).attr('href').substr(0, 6) == 'https:') {
-		    	$(this).addClass(settings.classPrefix + 'secure');
-		    } else if($(this).attr('href').substr(0, 4) == 'ftp:') {
-		    	$(this).addClass(settings.classPrefix + 'ftp').attr('target', '_blank');
+		    if(link.attr('href').substr(0, 6) == 'https:') {
+		    	link.addClass(settings.classPrefix + 'secure');
+		    } else if(link.attr('href').substr(0, 4) == 'ftp:') {
+		    	link.addClass(settings.classPrefix + 'ftp').attr('target', '_blank');
 		    }
 		});
 
 		$('a[href^="mailto:"]', container).addClass(settings.classPrefix + 'mailto').each(function() {
-		    if($(this).attr('title') == '') {
-		    	$(this).attr('title', 'send email to ' + $(this).attr('href').replace('mailto:', '').split('?')[0]);
+			var link = $(this);
+		    if(link.attr('title') == '') {
+		    	link.attr('title', 'send email to ' + link.attr('href').replace('mailto:', '').split('?')[0]);
 		    }
 		});
 
