@@ -5,7 +5,7 @@
 * link directs the user user to an ftp site
 * link is an email shortcut (mailto)
 * link directs the user to a downloadable file (pdf, mp3, etc)
-* link opens in a new window
+* link opens in a new window (configurable)
 
 
 ## Live Demonstration
@@ -21,12 +21,13 @@ Click [here](http://craigmccoy.github.com/jquery-linkcues/ "craigmccoy/jquery-li
 
 * **filetypes:** (type: <a href="http://docs.jquery.com/Types#String" target="_blank">String</a>, default: "pdf") A comma-separated list of file extensions to scan links for.
 * **classPrefix:** (type: <a href="http://docs.jquery.com/Types#String" target="_blank">String</a>, default: "linkcues-") This string is prefixed to all classes used by the plugin.
-
+* **windowTarget:** (type: <a href="http://docs.jquery.com/Types#String" target="_blank">String</a>, default: "_blank") This determines what the new window target will be.
 
 ## Usage Example
 
 ```javascript
 $('p').linkcues({
-	filetypes: 'pdf,mp3,doc'
+	filetypes : 'pdf,mp3,doc',
+	windowTarget : '_new'
 });
 ```
