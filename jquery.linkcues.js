@@ -2,7 +2,7 @@
 	
     $.fn.linkcues = function(options) {
 		var settings = $.extend({
-		    filetypes : 'pdf',
+		    filetypes : 'avi,doc,docx,eps,exe,mp3,mp4,mpg,mov,pdf,ppt,pptx,rar,wav,wmv,xls,xlsx,zip',
 		    classPrefix : 'linkcues-',
 		    windowTarget : '_blank'
 		}, options);
