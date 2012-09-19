@@ -33,5 +33,7 @@
 		}
 
 		$('a[target="_blank"]', container).addClass(settings.classPrefix + 'new-window'); 
+		
+		return container;
     }; 
 })(jQuery);
